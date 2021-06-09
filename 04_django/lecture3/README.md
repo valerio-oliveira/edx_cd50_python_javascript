@@ -37,7 +37,7 @@ http://localhost:8000
 
 Every Django project is composed for one or more applications.
 
-To create a new appplication into the Django project, type the command bellow, replacint the function name "hello" acconrdingly:
+To create a new appplication into the Django project, just type the command bellow, replacing the function's name "hello" acconrdingly:
 ```bash
 python3 manage.py startapp hello
 ```
