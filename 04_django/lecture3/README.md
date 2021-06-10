@@ -99,3 +99,18 @@ urlpatterns = [
     path('hello/', include("hello.urls")) # add here
 ]
 ```
+
+## Setting up robust applications
+
+## Task application
+
+## Migration
+
+Jango stores session data inside tables.
+
+When using session control for a list, in order to avoid Django raising an exception on not being able to store data in a table, use this command in ternminal:
+
+```bash
+python manage.py migrate
+```
+
