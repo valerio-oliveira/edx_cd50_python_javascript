@@ -63,6 +63,44 @@ applying the migrations:
 python3 manage.py migrate
 ```
 
+## Add a new airport
+
+Open up the Django shell
+```bash
+python3 manage.py shell
+```
+
+Add airport
+
+```bash
+>>> from flights.models import Airport
+>>> a = Airport(code="JFK", city="New York")
+>>> a.save()
+```
+
+## Implement a string representation for the Airport model
+
+Add the ```__str__``` method to the model class definition:
+```python
+    def __str__(self):
+        return f"{self.id}: {self.code}-{self.city}"
+```
+
+## Verifying the string representation
+
+Open up the Django shell
+```bash
+python3 manage.py shell
+```
+
+List airports
+```bash
+>>> from flights.models import Airport
+>>> airports = Airport.objects.all()
+>>> airports
+```
+
+
 ## Create the application's ```urls.py``` file
 
 ```python
