@@ -53,12 +53,15 @@ class People(models.Model):
 
 ## Create and apply the migrations
 
-Creating the migrations:
+Every changes in the model requires these two steps in order to be reflected into de database.
+
+### 1. Creating/recreating the migrations
+
 ```bash
 python3 manage.py makemigrations
 ```
 
-applying the migrations:
+### 2. Applying the migrations:
 ```bash
 python3 manage.py migrate
 ```
