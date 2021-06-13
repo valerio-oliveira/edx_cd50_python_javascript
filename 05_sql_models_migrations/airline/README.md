@@ -28,7 +28,6 @@ INSTALLED_APPS = [
 ## In the project's ```urls.py``` file add a reference to the app
 
 ```python
-
 # remember to add 'include' to the imports session
 from django.urls import include, path
 
@@ -41,14 +40,30 @@ Models represent data inside of the database.
 
 ```python
 class Airport(models.Model):
-    code = models.CharField(max_length=64)
+    code = models.CharField(max_length=3)
     city = models.CharField(max_length=64)
+
+    def __str__(self):
+        return f"{self.city} ({self.code})"
 
 
 class People(models.Model):
     first = models.CharField(max_length=64)
     last = models.CharField(max_length=64)
 
+    def __str__(self):
+        return f"{self.first} ({self.last})"
+
+
+class Flight(models.Model):
+    origin = models.ForeignKey(
+        Airport, on_delete=models.CASCADE, related_name="departures")
+    destination = models.ForeignKey(
+        Airport, on_delete=models.CASCADE, related_name="arrivals")
+    duration = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.id}: {self.origin} to {self.destination} ({self.duration})"
 ```
 
 ## Create and apply the migrations
@@ -66,7 +81,7 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
-## Add a new airport
+## Add a new airport using Shell
 
 Open up the Django shell
 ```bash
@@ -74,7 +89,6 @@ python3 manage.py shell
 ```
 
 Add airport
-
 ```bash
 >>> from flights.models import Airport
 >>> a = Airport(code="JFK", city="New York")
@@ -86,7 +100,7 @@ Add airport
 Add the ```__str__``` method to the model class definition:
 ```python
     def __str__(self):
-        return f"{self.id}: {self.code}-{self.city}"
+        return f"{self.city} ({self.code})"
 ```
 
 ## Verifying the string representation
@@ -117,6 +131,8 @@ urlpatterns = [
     path("", views.index, name="index"),
 ]
 ```
+
+
 
 ### NON RELATED
 
