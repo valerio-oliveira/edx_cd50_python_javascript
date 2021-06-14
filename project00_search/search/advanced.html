@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Advanced Search</title>
+    <style>
+        /* styles  */
+        .jfk-button {
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            cursor: default;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            height: 30px;
+            line-height: 20 px;
+            min-width: 54px;
+            padding: 0 8px;
+            margin-left: 2px;
+            vertical-align: middle;
+        }
+
+        .jfk-button-action {
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            background-color: #4d90fe;
+            background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: -moz-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: -ms-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: -o-linear-gradient(top, #4d90fe, #4787ed);
+            background-image: linear-gradient(top, #4d90fe, #4787ed);
+            border: 1px solid #3079ed;
+            color: #fff
+        }
+    </style>
+    <style>
+        html,
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+        }
+
+        img {
+            height: 100px;
+            width: 150px;
+        }
+
+        table {
+            border: 0px;
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
+        }
+
+        th {
+            border: 0px;
+            padding: 10px;
+            text-align: right;
+        }
+
+        td {
+            border: 0px;
+            padding: 2px;
+            text-align: center;
+        }
+
+        .tr_img,
+        .tr_footer {
+            vertical-align: bottom;
+        }
+
+        .tr_search {
+            vertical-align: top;
+        }
+
+
+        input[type=text] {
+            width: 400px;
+            padding: 4px;
+            margin: 2px;
+        }
+
+        input[type=submit] {
+            padding: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: royalblue;
+
+        }
+
+        .td_label {
+            text-align: left;
+            padding: 0px 10px;
+            width: 200px;
+        }
+
+        .td_text {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <th>
+                <a href="index.html">Back to Google Search</a>
+            </th>
+        </thead>
+        <tbody>
+            <tr class="tr_img">
+                <td>
+                    <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpIKWRtTRrFgwQYvAaICt9iiUXnPzXmU_A8U_G-H5xC6qVNkAtiwEKu_9WuvWrE4pCK5E&usqp=CAU"
+                            alt="Web Search Image">
+                    </div>
+                </td>
+            </tr>
+            <tr class="tr_search">
+                <td>
+                    <form action="https://google.com/search">
+                        <p>Find pages with...</p>
+                        <table>
+                            <tr>
+                                <td class="td_label">
+                                    <label for="as_q">all these words:</label>
+                                </td>
+                                <td class="td_text">
+                                    <input autofocus="autofocus" id="xX4UFf" name="as_q" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_label">
+                                    <label for="as_epq">this exact word or phrase:</label>
+                                </td>
+                                <td class="td_text">
+                                    <input value="" id="CwYCWc" name="as_epq" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_label">
+                                    <label for="as_oq">any of these words:</label>
+                                </td>
+                                <td class="td_text">
+                                    <input value="" id="mSoczb" name="as_oq" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_label">
+                                    <label for="as_eq">none of these words:</label>
+                                </td>
+                                <td class="td_text">
+                                    <input value="" id="t2dX1c" name="as_eq" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_label">
+                                </td>
+                                <td class="td_text">
+                                    <input class="jfk-button jfk-button-action" value="Advanced Search" type="submit">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+            </tr>
+            <tr class="tr_footer">
+                <td>CS50’s Web Programming with Python and JavaScript | Project 0 | by Valerio Oliveira
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
