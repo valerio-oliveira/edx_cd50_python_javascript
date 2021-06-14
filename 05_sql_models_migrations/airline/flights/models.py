@@ -28,8 +28,8 @@ class Passenger(models.Model):
     def __str__(self):
         return f"{self.first} {self.last}"
 
-class People(models.Model):
-    first = models.CharField(max_length=64)
-    last = models.CharField(max_length=64)
-    def __str__(self):
-        return f"{self.first} {self.last}"
+# class People(models.Model):
+#     first = models.CharField(max_length=64)
+#     last = models.CharField(max_length=64)
+#     def __str__(self):
+#         return f"{self.first} {self.last}"
