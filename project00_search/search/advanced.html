@@ -4,7 +4,75 @@
 <head>
     <title>Advanced Search</title>
     <style>
-        /* styles  */
+        html,
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            height: 100%;
+            width: 100%;
+            margin: auto;
+        }
+
+        table {
+            border: 0px;
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
+        }
+
+        th {
+            border: 0px;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .td_logo {
+            border: 0px;
+            padding: 2px;
+            text-align: left;
+        }
+
+        .td_top_link {
+            border: 0px;
+            padding: 2px;
+            text-align: right;
+        }
+
+        .tr_footer {
+            vertical-align: bottom;
+        }
+
+        .tr_search {
+            vertical-align: top;
+        }
+
+
+        input[type=text] {
+            width: 400px;
+            padding: 4px;
+            margin: 2px;
+        }
+
+        input[type=submit] {
+            padding: 6px;
+            /* font-size: 16px; */
+            box-sizing: border-box;
+            background-color: royalblue;
+        }
+        
+        input:focus {
+            border-color: #3079ed;
+        }
+
+        .td_label {
+            text-align: left;
+            padding: 0px 10px;
+            width: 200px;
+        }
+
+        .td_text {
+            text-align: left;
+        }
+
         .jfk-button {
             -webkit-border-radius: 2px;
             -moz-border-radius: 2px;
@@ -34,73 +102,7 @@
             border: 1px solid #3079ed;
             color: #fff
         }
-    </style>
-    <style>
-        html,
-        body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            height: 100%;
-            width: 100%;
-            margin: auto;
-        }
 
-        img {
-            height: 100px;
-            width: 150px;
-        }
-
-        table {
-            border: 0px;
-            border-collapse: collapse;
-            width: 100%;
-            height: 100%;
-        }
-
-        th {
-            border: 0px;
-            padding: 10px;
-            text-align: right;
-        }
-
-        td {
-            border: 0px;
-            padding: 2px;
-            text-align: center;
-        }
-
-        .tr_img,
-        .tr_footer {
-            vertical-align: bottom;
-        }
-
-        .tr_search {
-            vertical-align: top;
-        }
-
-
-        input[type=text] {
-            width: 400px;
-            padding: 4px;
-            margin: 2px;
-        }
-
-        input[type=submit] {
-            padding: 6px;
-            font-size: 16px;
-            box-sizing: border-box;
-            background-color: royalblue;
-
-        }
-
-        .td_label {
-            text-align: left;
-            padding: 0px 10px;
-            width: 200px;
-        }
-
-        .td_text {
-            text-align: left;
-        }
     </style>
 </head>
 
@@ -108,15 +110,20 @@
     <table>
         <thead>
             <th>
+                <td class="td_logo">
+                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                    alt="Google Logo">
+
+                </td>
+                <td class="td_top_link">
                 <a href="index.html">Back to Google Search</a>
+                </td>
             </th>
         </thead>
         <tbody>
             <tr class="tr_img">
                 <td>
                     <div>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpIKWRtTRrFgwQYvAaICt9iiUXnPzXmU_A8U_G-H5xC6qVNkAtiwEKu_9WuvWrE4pCK5E&usqp=CAU"
-                            alt="Web Search Image">
                     </div>
                 </td>
             </tr>

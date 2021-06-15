@@ -12,11 +12,6 @@
             margin: auto;
         }
 
-        img {
-            height: 100px;
-            width: 150px;
-        }
-
         table {
             border: 0px;
             border-collapse: collapse;
@@ -36,25 +31,90 @@
             text-align: center;
         }
 
-        #tr_img,
-        #tr_footer {
+        .tr_img,
+        .tr_footer {
             vertical-align: bottom;
         }
 
-        #tr_search {
+        .tr_search {
             vertical-align: top;
         }
 
         input[type=text] {
-            width: 400px;
             border-radius: 20px;
+            border-style: none;
+            font-size: 16pt;
             padding: 10px 10px;
+            width: 100%;
         }
 
         input[type=submit] {
-            padding: 6px 10px;
-            font-size: 16px;
             box-sizing: border-box;
+            font-size: 16px;
+            padding: 6px 10px;
+        }
+        
+        input:focus {
+        outline-width: 0;
+        }
+
+        .RNNXgb {
+            background: #fff;
+            display: flex;
+            border: 1px solid #dfe1e5;
+            box-shadow: none;
+            border-radius: 24px;
+            z-index: 3;
+            height: 44px;
+            margin: 0 auto;
+            width: 482px;
+            width: auto;
+        }
+
+        .minidiv .RNNXgb {
+            background: #fff;
+            height: 32px;
+            border-radius: 16px;
+            margin: 10px 0 0
+        }
+
+        .emcav .RNNXgb {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: rgba(223, 225, 229, 0);
+            box-shadow: 0 1px 6px rgba(32, 33, 36, .28)
+        }
+
+        .minidiv .emcav .RNNXgb {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0
+        }
+
+        .emcav.emcat .RNNXgb {
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px
+        }
+
+        .minidiv .emcav.emcat .RNNXgb {
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px
+        }
+
+        .RNNXgb:hover,
+        .sbfc .RNNXgb {
+            background-color: #fff;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+            border-color: rgba(223, 225, 229, 0)
+        }
+
+        #searchform.big .RNNXgb {
+            width: 582px;
+            width: auto
+        }
+
+        .RNNXgb {
+            width: auto;
+            max-width: 584px
         }
     </style>
 </head>
@@ -67,24 +127,30 @@
             </th>
         </thead>
         <tbody>
-            <tr id="tr_img">
+            <tr class="tr_img">
                 <td>
                     <div>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpIKWRtTRrFgwQYvAaICt9iiUXnPzXmU_A8U_G-H5xC6qVNkAtiwEKu_9WuvWrE4pCK5E&usqp=CAU"
+                        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
                             alt="Web Search Image">
                     </div>
                 </td>
             </tr>
-            <tr id="tr_search">
+            <tr class="tr_search">
                 <td>
                     <form action="https://google.com/search">
                         <input type="hidden" name="tbm" value="isch">
-                        <p><input type="text" name="q"></p>
-                        <p><input type="submit" value="Image Search"></p>
+                        <p>
+                            <div class="RNNXgb">
+                                <input type="text" name="q">
+                            </div>
+                        </p>
+                        <p>
+                            <input type="submit" value="Image Search">
+                        </p>
                     </form>
                 </td>
             </tr>
-            <tr id="tr_footer">
+            <tr class="tr_footer">
                 <td>CS50’s Web Programming with Python and JavaScript | Project 0 | by Valerio Oliveira
                 </td>
             </tr>

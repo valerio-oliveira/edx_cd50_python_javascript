@@ -32,11 +32,11 @@
         }
 
         .tr_img,
-        #tr_footer {
+        .tr_footer {
             vertical-align: bottom;
         }
 
-        #tr_search {
+        .tr_search {
             vertical-align: top;
         }
 
@@ -49,9 +49,13 @@
         }
 
         input[type=submit] {
-            padding: 6px 10px;
-            font-size: 16px;
             box-sizing: border-box;
+            font-size: 16px;
+            padding: 6px 10px;
+        }
+        
+        input:focus {
+        outline-width: 0;
         }
 
         .RNNXgb {
@@ -128,11 +132,11 @@
                 <td>
                     <div>
                         <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                            alt="Web Search Image">
+                            alt="Google Logo">
                     </div>
                 </td>
             </tr>
-            <tr id="tr_search">
+            <tr class="tr_search">
                 <td>
                     <form action="https://google.com/search">
                         <p>
@@ -141,20 +145,17 @@
                         </div>
                         </p>
                         <p><input type="submit" value="Google Search">
-                            <input type="submit" name="btnI" value="I’m Feeling Lucky">
+                            <input type="submit" name="btnI" value="I am Feeling Lucky">
                         </p>
-
                     </form>
                 </td>
             </tr>
-            <tr id="tr_footer">
+            <tr class="tr_footer">
                 <td>CS50’s Web Programming with Python and JavaScript | Project 0 | by Valerio Oliveira
                 </td>
             </tr>
         </tbody>
     </table>
-
-
 </body>
 
 </html>
