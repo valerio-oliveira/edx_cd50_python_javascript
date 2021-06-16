@@ -2,185 +2,337 @@
 <html lang="en">
 
 <head>
-    <title>Advanced Search</title>
+    <title>Google Search</title>
     <style>
         html,
         body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
             height: 100%;
-            width: 100%;
-            margin: auto;
+            margin: 0;
+            padding: 0;
+            min-width: 400px;
         }
 
-        table {
-            border: 0px;
-            border-collapse: collapse;
-            width: 100%;
-            height: 100%;
+        body {
+            font-family: arial, sans-serif;
+            font-size: small;
+            overflow: hidden;
         }
 
-        th {
-            border: 0px;
-            padding: 10px;
+        .grid {
+            height: 100%;
+            display: grid;
+            padding-right: 5px;
+        }
+
+        .grid-top {
+            padding-right: 5px;
+            display: inline
+        }
+
+        .grid-top-right {
             text-align: right;
         }
 
-        .td_logo {
-            border: 0px;
-            padding: 2px;
+        .grid-top-left {
             text-align: left;
         }
 
-        .td_top_link {
-            border: 0px;
-            padding: 2px;
-            text-align: right;
+        .grid-search {
+            text-align: center;
         }
 
-        .tr_footer {
+        .grid-bottom {
+            padding-bottom: 2px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
             vertical-align: bottom;
+            width: 100%;
+        }
+    </style>
+
+    <style>
+        .input-border {
+            background: #fff;
+            display: flex;
+            border: 1px solid #dfe1e5;
+            box-shadow: none;
+            border-radius: 24px;
+            height: 44px;
+            margin: 0 auto;
+            width: auto;
+            max-width: 584px
         }
 
-        .tr_search {
-            vertical-align: top;
+        .input-border:hover {
+            background-color: #fff;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+            border-color: rgba(223, 225, 229, 0)
         }
 
+        input:focus {
+            outline-width: 0;
+        }
 
         input[type=text] {
-            width: 400px;
-            padding: 4px;
-            margin: 2px;
+            background: white;
+            background-color: white;
+            outline: none;
+            border-style: none;
+            padding: 20px 10px;
+            border: none;
+            display: inline-block;
+            font-family: arial, sans-serif;
+            font-size: medium;
+            width: 100%;
         }
 
-        input[type=submit] {
-            padding: 6px;
-            /* font-size: 16px; */
-            box-sizing: border-box;
-            background-color: royalblue;
-        }
-        
-        input:focus {
-            border-color: #3079ed;
-        }
-
-        .td_label {
-            text-align: left;
-            padding: 0px 10px;
-            width: 200px;
-        }
-
-        .td_text {
-            text-align: left;
-        }
-
-        .jfk-button {
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
-            border-radius: 2px;
-            cursor: default;
-            font-size: 11px;
-            font-weight: bold;
-            text-align: center;
-            height: 30px;
-            line-height: 20 px;
+        input[type="submit"] {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-family: arial, sans-serif;
+            font-size: 14px;
+            margin: 11px 4px;
+            padding: 0 16px;
+            line-height: 27px;
+            height: 36px;
             min-width: 54px;
-            padding: 0 8px;
-            margin-left: 2px;
-            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+            user-select: none
         }
 
-        .jfk-button-action {
-            -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-            box-shadow: none;
-            background-color: #4d90fe;
-            background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
-            background-image: -moz-linear-gradient(top, #4d90fe, #4787ed);
-            background-image: -ms-linear-gradient(top, #4d90fe, #4787ed);
-            background-image: -o-linear-gradient(top, #4d90fe, #4787ed);
-            background-image: linear-gradient(top, #4d90fe, #4787ed);
-            border: 1px solid #3079ed;
-            color: #fff
+        input[type="submit"]:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            color: #202124
         }
 
+        input[type="submit"]:focus {
+            border: 1px solid #4285f4;
+            outline: none
+        }
     </style>
+
+    <style>
+        .gb_3 {
+            display: inline-block;
+            line-height: 28px;
+            padding: 0 12px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            background: #f8f8f8;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        .gb_3:hover {
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .15)
+        }
+
+        .gb_3:active {
+            -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, .15);
+            box-shadow: inset 0 2px 0 rgba(0, 0, 0, .15);
+            background: #3c78dc;
+            background: -webkit-linear-gradient(top, #3c7ae4, #3f76d3);
+            background: linear-gradient(top, #3c7ae4, #3f76d3);
+        }
+
+        .gb_bd {
+            display: inline-block;
+            vertical-align: middle
+        }
+
+        .gb_C {
+            cursor: pointer;
+            display: inline-block;
+            outline: none;
+            vertical-align: middle;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 40px;
+            width: 40px;
+            opacity: 60%;
+            padding: 8px;
+        }
+
+        .gb_C:focus,
+        .gb_C:hover,
+        .gb_C:active,
+        .gb_C[aria-expanded=true] {
+            outline: none;
+            -webkit-border-radius: 50%;
+            border-radius: 50%
+        }
+
+        .gb_C:focus,
+        .gb_C:focus:hover {
+            background-color: rgba(60, 64, 67, 0.1)
+        }
+
+        .gb_C:hover {
+            background-color: rgba(60, 64, 67, 0.08)
+        }
+
+        .gb_bd {
+            padding: 10px;
+            padding-right: 2px;
+        }
+
+        .gb_3d {
+            -webkit-transition: background-color .4s;
+            transition: background-color .4s
+        }
+
+        .gb_f {
+            color: rgba(0, 0, 0, 0.87);
+            display: inline-block;
+            line-height: 24px;
+            padding-left: 8px;
+            padding-right: 6px;
+            text-decoration: none;
+            vertical-align: middle
+        }
+
+        .gb_f:focus {
+            outline-offset: 2px
+        }
+
+        .gb_f:hover {
+            text-decoration: underline
+        }
+
+        .gb_g {
+            display: inline-block;
+            padding-left: 15px
+        }
+
+
+        .gb_9d {
+            font-family: Google Sans, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: .25px;
+            line-height: 16px;
+            margin-left: 6px;
+            margin-right: 8px;
+            min-width: 96px;
+            padding: 9px 23px;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+
+        .gb_3.gb_9d:hover {
+            background: #2b7de9;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+        }
+
+        .gb_3.gb_9d:focus,
+        .gb_3.gb_9d:hover:focus {
+            background: #5094ed;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+        }
+
+        .gb_3.gb_9d:active {
+            background: #63a0ef;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+        }
+
+        .gb_9d:not(.gb_2) {
+            background: #1a73e8;
+            border: 1px solid transparent
+        }
+    </style>
+
 </head>
 
 <body>
-    <table>
-        <thead>
-            <th>
-                <td class="td_logo">
-                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                    alt="Google Logo">
+    <div class="grid">
+        <div class="grid-top">
+            <div class="grid-top-left">
+            </div>
+            <div class="grid-top-right">
+                <a class="gb_f" href="index.html">Back to Google Search</a>
+                <div class="gb_bd" data-ogsr-fb="true">
+                    <a class="gb_C" aria-label="Google apps" aria-expanded="false" tabindex="0"><svg focusable="false"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <a class="gb_3 gb_9d gb_3d">Sign in</a>
+            </div>
+        </div>
 
-                </td>
-                <td class="td_top_link">
-                <a href="index.html">Back to Google Search</a>
-                </td>
-            </th>
-        </thead>
-        <tbody>
-            <tr class="tr_img">
-                <td>
-                    <div>
-                    </div>
-                </td>
-            </tr>
-            <tr class="tr_search">
-                <td>
-                    <form action="https://google.com/search">
-                        <p>Find pages with...</p>
-                        <table>
-                            <tr>
-                                <td class="td_label">
-                                    <label for="as_q">all these words:</label>
-                                </td>
-                                <td class="td_text">
-                                    <input autofocus="autofocus" id="xX4UFf" name="as_q" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_label">
-                                    <label for="as_epq">this exact word or phrase:</label>
-                                </td>
-                                <td class="td_text">
-                                    <input value="" id="CwYCWc" name="as_epq" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_label">
-                                    <label for="as_oq">any of these words:</label>
-                                </td>
-                                <td class="td_text">
-                                    <input value="" id="mSoczb" name="as_oq" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_label">
-                                    <label for="as_eq">none of these words:</label>
-                                </td>
-                                <td class="td_text">
-                                    <input value="" id="t2dX1c" name="as_eq" type="text">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_label">
-                                </td>
-                                <td class="td_text">
-                                    <input class="jfk-button jfk-button-action" value="Advanced Search" type="submit">
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </td>
-            </tr>
-            <tr class="tr_footer">
-                <td>CS50’s Web Programming with Python and JavaScript | Project 0 | by Valerio Oliveira
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="appbar">
+            <label style="margin-left:10px">Advanced Search</label>
+        </div>
+        <!-- <form action="https://google.com/search">
+            <p>Find pages with...</p>
+            <table>
+                <tr>
+                    <td class="td_label">
+                        <label for="as_q">all these words:</label>
+                    </td>
+                    <td class="td_text">
+                        <input autofocus="autofocus" id="xX4UFf" name="as_q" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_label">
+                        <label for="as_epq">this exact word or phrase:</label>
+                    </td>
+                    <td class="td_text">
+                        <input value="" id="CwYCWc" name="as_epq" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_label">
+                        <label for="as_oq">any of these words:</label>
+                    </td>
+                    <td class="td_text">
+                        <input value="" id="mSoczb" name="as_oq" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_label">
+                        <label for="as_eq">none of these words:</label>
+                    </td>
+                    <td class="td_text">
+                        <input value="" id="t2dX1c" name="as_eq" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_label">
+                    </td>
+                    <td class="td_text">
+                        <input class="jfk-button jfk-button-action" value="Advanced Search" type="submit">
+                    </td>
+                </tr>
+            </table>
+        </form> -->
+
+        <div class="grid-bottom">
+            CS50’s Web Programming with Python and JavaScript | Project 0 | by Valerio Oliveira
+        </div>
+    </div>
 </body>
 
 </html>
