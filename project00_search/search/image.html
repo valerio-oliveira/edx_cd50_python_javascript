@@ -2,63 +2,67 @@
 <html lang="en">
 
 <head>
-    <title>Image Search</title>
+    <title>Google Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         html,
         body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
             height: 100%;
-            width: 100%;
-            margin: auto;
+            margin: 0;
+            padding: 0;
+            min-width: 400px;
         }
 
-        table {
-            border: 0px;
-            border-collapse: collapse;
-            width: 100%;
-            height: 100%;
+        body {
+            font-family: arial, sans-serif;
+            font-size: small;
+            overflow: hidden;
         }
 
-        th {
-            border: 0px;
-            padding: 10px;
+        .grid {
+            height: 100%;
+            display: grid;
+            padding-right: 5px;
+        }
+
+        .grid-top {
             text-align: right;
+            padding-right: 5px;
+            display: inline
         }
 
-        td {
-            border: 0px;
-            padding: 2px;
+        .grid-search {
             text-align: center;
         }
 
-        .tr_img,
-        .tr_footer {
+        .grid-bottom {
+            padding-bottom: 2px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
             vertical-align: bottom;
-        }
-
-        .tr_search {
-            vertical-align: top;
-        }
-
-        input[type=text] {
-            html {}
-
-            border-radius: 20px;
-            border-style: none;
-            font-size: 16pt;
-            padding: 10px 10px;
             width: 100%;
         }
 
-        input[type=submit] {
-            box-sizing: border-box;
-            font-size: 16px;
-            padding: 6px 10px;
+        .lbl-images {
+            position: relative;
+            top: 0px;
+            left: 106px;
+            font-size: medium;
+            color: dodgerblue;
         }
 
-        input:focus {
-            outline-width: 0;
+        .img-logo {
+            position: relative;
+            top: 20px;
+            
         }
+
+
+    </style>
+
+    <style>
 
         .RNNXgb {
             background: #fff;
@@ -66,94 +70,381 @@
             border: 1px solid #dfe1e5;
             box-shadow: none;
             border-radius: 24px;
-            z-index: 3;
             height: 44px;
             margin: 0 auto;
-            width: 482px;
             width: auto;
+            max-width: 584px
         }
 
-        .minidiv .RNNXgb {
-            background: #fff;
-            height: 32px;
-            border-radius: 16px;
-            margin: 10px 0 0
-        }
-
-        .emcav .RNNXgb {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-color: rgba(223, 225, 229, 0);
-            box-shadow: 0 1px 6px rgba(32, 33, 36, .28)
-        }
-
-        .minidiv .emcav .RNNXgb {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0
-        }
-
-        .emcav.emcat .RNNXgb {
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px
-        }
-
-        .minidiv .emcav.emcat .RNNXgb {
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px
-        }
-
-        .RNNXgb:hover,
-        .sbfc .RNNXgb {
+        .RNNXgb:hover {
             background-color: #fff;
             box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
             border-color: rgba(223, 225, 229, 0)
         }
 
-        .RNNXgb {
-            width: 582px;
-            width: auto;
-            max-width: 584px
+        input:focus {
+            outline-width: 0;
         }
+
+        input[type=text] {
+            border-radius: 20px;
+            border-style: none;
+            font-family: arial, sans-serif;
+            font-size: medium;
+            padding: 20px 40px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-family: arial, sans-serif;
+            font-size: 14px;
+            margin: 11px 4px;
+            padding: 0 16px;
+            line-height: 27px;
+            height: 36px;
+            min-width: 54px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none
+        }
+
+        input[type="submit"]:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            color: #202124
+        }
+
+        input[type="submit"]:focus {
+            border: 1px solid #4285f4;
+            outline: none
+        }
+
     </style>
+
+    <style>
+
+        .gb_3 {
+            display: inline-block;
+            line-height: 28px;
+            padding: 0 12px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            background: #f8f8f8;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        .gb_3:hover {
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, .15)
+        }
+
+        .gb_3:active {
+            -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, .15);
+            box-shadow: inset 0 2px 0 rgba(0, 0, 0, .15);
+            background: #3c78dc;
+            background: -webkit-linear-gradient(top, #3c7ae4, #3f76d3);
+            background: linear-gradient(top, #3c7ae4, #3f76d3);
+        }
+
+        .gb_bd {
+            display: inline-block;
+            vertical-align: middle
+        }
+
+        .gb_C {
+            cursor: pointer;
+            display: inline-block;
+            outline: none;
+            vertical-align: middle;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 40px;
+            width: 40px;
+            opacity: 60%;
+            padding: 8px;
+        }
+
+        .gb_C:focus,
+        .gb_C:hover,
+        .gb_C:active,
+        .gb_C[aria-expanded=true] {
+            outline: none;
+            -webkit-border-radius: 50%;
+            border-radius: 50%
+        }
+
+        .gb_C:focus,
+        .gb_C:focus:hover {
+            background-color: rgba(60, 64, 67, 0.1)
+        }
+
+        .gb_C:hover {
+            background-color: rgba(60, 64, 67, 0.08)
+        }
+
+        .gb_bd {
+            padding: 10px;
+            padding-right: 2px;
+        }
+
+        .gb_3d {
+            -webkit-transition: background-color .4s;
+            transition: background-color .4s
+        }
+
+        .gb_f {
+            color: rgba(0, 0, 0, 0.87);
+            display: inline-block;
+            line-height: 24px;
+            padding-left: 8px;
+            padding-right: 6px;
+            text-decoration: none;
+            vertical-align: middle
+        }
+
+        .gb_f:focus {
+            outline-offset: 2px
+        }
+
+        .gb_f:hover {
+            text-decoration: underline
+        }
+
+        .gb_g {
+            display: inline-block;
+            padding-left: 15px
+        }
+
+
+        .gb_9d {
+            font-family: Google Sans, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: .25px;
+            line-height: 16px;
+            margin-left: 6px;
+            margin-right: 8px;
+            min-width: 96px;
+            padding: 9px 23px;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+
+        .gb_3.gb_9d:hover {
+            background: #2b7de9;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+        }
+
+        .gb_3.gb_9d:focus,
+        .gb_3.gb_9d:hover:focus {
+            background: #5094ed;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+        }
+
+        .gb_3.gb_9d:active {
+            background: #63a0ef;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+        }
+
+        .gb_9d:not(.gb_2) {
+            background: #1a73e8;
+            border: 1px solid transparent
+        }
+
+    </style>
+
 </head>
 
 <body>
-    <table>
-        <thead>
-            <th>
-                <a href="index.html">Back to Google Search</a>
-            </th>
-        </thead>
-        <tbody>
-            <tr class="tr_img">
-                <td>
-                    <div>
-                        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                            alt="Web Search Image">
+    <div class="grid">
+        <div class="grid-top">
+            <a class="gb_f" href="index.html">Back to Google Search</a>
+
+            <div class="gb_bd" data-ogsr-fb="true">
+                <a class="gb_C" 
+                    aria-label="Google apps"
+                    aria-expanded="false"
+                    tabindex="0"><svg focusable="false" viewBox="0 0 24 24">
+                        <path
+                            d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            
+            <a class="gb_3 gb_9d gb_3d">Sign in</a>
+
+        </div>
+        <div class="grid-search">
+
+            <div class="img-logo">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
+            </div>
+
+            <div class="lbl-images">images</div>
+
+            <form action="https://google.com/search">
+                <p>
+                <div class="RNNXgb">
+
+                    <!-- 1st maximizer -->
+                    <style>
+                        .QCzoEc{
+                            margin-top:0px;
+                            height:20px;
+                            width:20px;
+                            height: 100%;
+                            text-align: left;
+                        }
+                    </style>
+                    <div class="iblpc" jsname="uFMOof">
+                        <style data-iml="1623810211731">
+                            .QCzoEc{
+                                align-items:stretch;
+                                cursor:pointer;
+                                display:flex;
+                                flex-direction:row;
+                                flex:0 0 auto;
+                                margin-top:0px;
+                                margin-left:12px;
+                                opacity: 50%;
+                            }
+                        </style>
+                        <span class="QCzoEc z1asCe MZy1Rb">
+                            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                            </svg>
+                        </span>
                     </div>
-                </td>
-            </tr>
-            <tr class="tr_search">
-                <td>
-                    <form action="https://google.com/search">
-                        <input type="hidden" name="tbm" value="isch">
-                        <p>
-                        <div class="RNNXgb">
-                            <input type="text" name="q">
+
+                    
+                    
+                    
+                    <input type="hidden" name="tbm" value="isch">
+                    <input type="text" name="q">
+
+
+
+
+                    <!-- camera -->
+                    <style>
+                        .img-camera{
+                            display:flex;
+                            flex:0 0 auto;
+                            margin-top:10px;
+                            margin-right:4px;
+                            align-items:stretch;
+                            flex-direction:row;
+                            cursor: pointer;
+                            color: gray;
+                        }
+                    </style>
+                    <div class="img-camera">
+                    <i class="material-icons">camera_alt</i>
+                    </div>
+
+
+
+                    <!-- microphone -->
+                    <div class="dRYYxd">
+
+                        <style data-iml="1623809089218">
+                            .dRYYxd{
+                                display:flex;
+                                flex:0 0 auto;
+                                margin-top:0px;
+                                margin-right:4px;
+                                align-items:stretch;
+                                flex-direction:row;
+                            }
+
+                            .minidiv .dRYYxd {
+                                margin-top:0
+                            }
+                        </style>
+                        <style data-iml="1623809089218">
+                            .BKRPef{flex:1 0 auto;display:none;cursor:pointer;align-items:center;border:0;background:transparent;outline:none;padding:0 8px;line-height:44px}.M2vV3{display:flex}.ExCKkf{height:100%;color:#70757a;vertical-align:middle;outline:none}.minidiv .BKRPef{line-height:32px}.minidiv .ExCKkf{width:20px}
+                        </style>
+                        <style data-iml="1623809089218">
+                            .BKRPef{padding-right:4px}.ExCKkf{margin-right:12px}.ACRAdd{border-left:1px solid #dfe1e5;height:65%}
+                        </style>
+                        <div jscontroller="PymCCe" class="BKRPef" jsname="RP0xob" aria-label="Clear" role="button" jsaction="AVsnlb;rcuQ6b:npT2md" data-ved="0ahUKEwiN3q6fiJvxAhWQrpUCHUOMDtQQ05YFCAU"> 
+                            <span class="ExCKkf z1asCe rzyADb" jsname="itVqKe" role="button" tabindex="0" aria-label="Clear">
+                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                                </svg>
+                            </span>
+                            <span class="ACRAdd"></span>
                         </div>
-                        </p>
-                        <p>
-                            <input type="submit" value="Image Search">
-                        </p>
-                    </form>
-                </td>
-            </tr>
-            <tr class="tr_footer">
-                <td>CS50’s Web Programming with Python and JavaScript | Project 0 | by Valerio Oliveira
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                        <style data-iml="1623809089218">
+                            .XDyW0e{flex:1 0 auto;display:flex;cursor:pointer;align-items:center;border:0;background:transparent;outline:none;padding:0 8px;width:24px;line-height:44px}.goxjub{height:24px;width:24px;vertical-align:middle}.minidiv .XDyW0e{line-height:32px}.minidiv .goxjub{width:20px;height:20px}
+                        </style>
+                        <div jscontroller="unV4T" class="XDyW0e" aria-label="Search by voice" role="button" tabindex="0" jsaction="h5M12e;rcuQ6b:npT2md" data-ved="0ahUKEwiN3q6fiJvxAhWQrpUCHUOMDtQQvs8DCAY">
+                            <svg class="goxjub" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#4285f4" d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"></path>
+                                <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
+                                <path fill="#fbbc05" d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"></path>
+                                <path fill="#ea4335" d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 2nd maximizer -->
+                    <style data-iml="1623811872433">
+                        .Tg7LZd{
+                            height:44px;
+                            width:44px;
+                            margin-top: 10px;
+                            background:transparent;
+                            border:none;
+                            cursor:pointer;
+                            padding:0;
+                        }
+                        
+                        .Tg7LZd{
+                            flex:0 0 auto;
+                            padding-right: 10px;
+                            background:none;
+                            color:#4285f4;
+                            height:24px;
+                            width:24px;
+                        }
+                    </style>                                        
+                    <div class="Tg7LZd"> 
+                        <svg focusable="false" viewBox="0 0 24 24">
+                            <path fill="#4285f4" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg>
+                    </div>
+
+ 
+                </div>
+                </p>
+                <p>
+                    <input class="gNO89b" type="submit" value="Image Search">
+                </p>
+            </form>
+        </div>
+        <div class="grid-bottom">
+            CS50’s Web Programming with Python and JavaScript | Project 0 | by Valerio Oliveira
+        </div>
+    </div>
 </body>
 
 </html>
