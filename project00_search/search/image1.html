@@ -3,6 +3,7 @@
 
 <head>
     <title>Google Search</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- html, body, and main grids -->
     <style>
@@ -27,16 +28,15 @@
         }
 
         .grid-top {
-            display: inline-block;
+            text-align: right;
             padding: 10px;
             padding-right: 5px;
-            text-align: right;
-            vertical-align: middle;
+            display: inline
         }
 
         .grid-search {
             text-align: center;
-            vertical-align: middle;
+            padding-bottom: 20%;
         }
 
         .grid-bottom {
@@ -236,8 +236,25 @@
         }
     </style>
 
-    <!-- maximizer and microphone -->
+    <!-- google logo -->
     <style>
+        .img-logo {
+            position: relative;
+            top: 20px;
+        }
+        
+        .lbl-images {
+            position: relative;
+            top: 0px;
+            left: 106px;
+            font-size: medium;
+            color: dodgerblue;
+        }
+    </style>
+
+    <!-- images: maximizer, camera, microphone, and 2nd maximizer -->
+    <style>
+
         .img-maximizer {
             align-items: stretch;
             cursor: pointer;
@@ -250,6 +267,17 @@
             opacity: 40%;
             text-align: left;
             width: 20px;
+        }
+
+        .img-camera{
+            display:flex;
+            flex:0 0 auto;
+            margin-top:10px;
+            margin-right:10px;
+            align-items:stretch;
+            flex-direction:row;
+            cursor: pointer;
+            color: gray;
         }
 
         .img-microphone {
@@ -266,6 +294,19 @@
             vertical-align: middle
         }
 
+        .img-2nd-maximizer{
+            margin-top: 10px;
+            border:none;
+            cursor:pointer;
+            padding:0;
+            flex:0 0 auto;
+            padding-right: 10px;
+            background:none;
+            color:#4285f4;
+            height:24px;
+            width:24px;
+        }
+
 
     </style>
 
@@ -274,8 +315,7 @@
 <body>
     <div class="grid">
         <div class="grid-top">
-            <a class="top-link" href="advanced.html">Advanced Search</a>
-            <a class="top-link" href="image.html">Images</a>
+            <a class="top-link" href="index.html">Back to Google Search</a>
             
             <a class="btn-menu" aria-expanded="false">
                 <svg focusable="false"viewBox="0 0 24 24">
@@ -291,8 +331,11 @@
 
         <div class="grid-search">
             
-            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                alt="Google Logo">
+            <div class="img-logo">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
+            </div>
+
+            <div class="lbl-images">images</div>
 
             <form action="https://google.com/search">
                 <p>
@@ -308,7 +351,13 @@
                         </span>
                     </div>
 
+                    <input type="hidden" name="tbm" value="isch">
                     <input type="text" name="q">
+
+                    <div class="img-camera">
+                    <i class="material-icons">camera_alt</i>
+                    </div>
+
 
                     <svg class="img-microphone" focusable="false" viewBox="0 0 24 24">
                         <path fill="#4285f4"
@@ -323,12 +372,18 @@
                         </path>
                     </svg>
 
+                    <div class="img-2nd-maximizer"> 
+                        <svg focusable="false" viewBox="0 0 24 24">
+                            <path fill="#4285f4" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg>
+                    </div>
+
                 </div>
                 </p>
+
                 <div class="buttons">
-                    <input class="gNO89b" type="submit" value="Google Search">
-                    <input type="submit" name="btnI" value="I am Feeling Lucky">
-                </p>
+                    <input type="submit" value="Image Search">
+                </div>
             </form>
         </div>
         <div class="grid-bottom">
